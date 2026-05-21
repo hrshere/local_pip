@@ -1,6 +1,6 @@
 name: local_pip
 description: A Flutter plugin for easily entering Picture-in-Picture (PiP) mode on both Android and iOS.
-version: 1.0.0
+version: 1.1.0
 repository: https://github.com/hrshere/local_pip
 
 environment:
