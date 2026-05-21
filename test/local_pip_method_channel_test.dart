@@ -9,26 +9,24 @@ void main() {
   const MethodChannel channel = MethodChannel('local_pip');
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        switch (methodCall.method) {
-          case 'getPlatformVersion':
-            return '42';
-          case 'isPipAvailable':
-            return true;
-          case 'enterPipMode':
-            return true;
-          default:
-            return null;
-        }
-
-      },
-    );
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+          switch (methodCall.method) {
+            case 'getPlatformVersion':
+              return '42';
+            case 'isPipAvailable':
+              return true;
+            case 'enterPipMode':
+              return true;
+            default:
+              return null;
+          }
+        });
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {

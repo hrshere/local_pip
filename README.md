@@ -1,6 +1,6 @@
 # local_pip
 
-A Flutter plugin for easily entering Picture-in-Picture (PiP) mode on Android.
+A Flutter plugin for easily entering Picture-in-Picture (PiP) mode on both Android and iOS.
 
 ## Features
 
@@ -12,7 +12,7 @@ A Flutter plugin for easily entering Picture-in-Picture (PiP) mode on Android.
 
 ### Android Setup
 
-To allow your app to enter Picture-in-Picture mode, you must add `android:supportsPictureInPicture="true"` to the `MainActivity` in your `android/app/src/main/AndroidManifest.xml` file.
+To allow your app to enter Picture-in-Picture mode, you must add `android:supportsPictureInPicture="true"` to the `MainActivity` in your `android/app/src/main/AndroidManifest.xml` file:
 
 ```xml
 <activity
@@ -24,6 +24,23 @@ To allow your app to enter Picture-in-Picture mode, you must add `android:suppor
     android:hardwareAccelerated="true"
     android:windowSoftInputMode="adjustResize"
     android:supportsPictureInPicture="true"> <!-- Add this line -->
+```
+
+### iOS Setup
+
+To enable Picture-in-Picture support on iOS (iOS 15.0+):
+
+1. **Enable Background Modes**: Open your iOS project in Xcode, navigate to your target's **Signing & Capabilities** tab, click **+ Capability**, and add **Background Modes**.
+2. **Select picture-in-picture**: In the **Background Modes** checkbox list, check **Audio, AirPlay, and Picture in Picture** (this adds `audio` and `picture-in-picture` keys to your `Info.plist`'s `UIBackgroundModes`).
+
+Alternatively, add this to your `ios/Runner/Info.plist` file inside the `<dict>` block:
+
+```xml
+<key>UIBackgroundModes</key>
+<array>
+	<string>audio</string>
+	<string>picture-in-picture</string>
+</array>
 ```
 
 ### Installation

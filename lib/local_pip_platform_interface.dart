@@ -30,6 +30,7 @@ abstract class LocalPipPlatform extends PlatformInterface {
   Future<bool> isPipAvailable() {
     throw UnimplementedError('isPipAvailable() has not been implemented.');
   }
+
   Future<bool> enterPipMode() {
     throw UnimplementedError('enterPipMode() has not been implemented.');
   }

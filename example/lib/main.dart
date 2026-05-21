@@ -31,7 +31,9 @@ class _MyAppState extends State<MyApp> {
     bool pipAvailable;
 
     try {
-      platformVersion = await _localPipPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      platformVersion =
+          await _localPipPlugin.getPlatformVersion() ??
+          'Unknown platform version';
       pipAvailable = await _localPipPlugin.isPipAvailable();
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
@@ -58,9 +60,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Local PiP Example'),
-        ),
+        appBar: AppBar(title: const Text('Local PiP Example')),
         body: Center(
           child: SingleChildScrollView(
             child: Column(

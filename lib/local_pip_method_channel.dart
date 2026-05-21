@@ -11,20 +11,25 @@ class MethodChannelLocalPip extends LocalPipPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version = await methodChannel.invokeMethod<String>(
+      'getPlatformVersion',
+    );
     return version;
   }
 
   @override
   Future<bool> isPipAvailable() async {
-    final bool? isAvailable = await methodChannel.invokeMethod<bool>('isPipAvailable');
+    final bool? isAvailable = await methodChannel.invokeMethod<bool>(
+      'isPipAvailable',
+    );
     return isAvailable ?? false;
   }
 
   @override
   Future<bool> enterPipMode() async {
-    final bool? success = await methodChannel.invokeMethod<bool>('enterPipMode');
+    final bool? success = await methodChannel.invokeMethod<bool>(
+      'enterPipMode',
+    );
     return success ?? false;
   }
-
 }
